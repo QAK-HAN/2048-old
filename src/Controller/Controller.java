@@ -1,25 +1,63 @@
+
+
 package Controller;
 
-import Herzi.Herzi;
+import move.Move;
 
 public class Controller implements ControllerInterface {
 
-    Herzi herzi = new Herzi();
+    Move Move = new Move();
 
-    public boolean getIsGameOver(int[] grid) {return herzi.is_game_over(grid);}
+    /**
+     * @param grid This Array Object is given into @return to be used
+     * @return game.is_game_over(grid). The given Object
+     */
+    public boolean getIsGameOver(int[] grid) {return Move.is_game_over(grid);}
 
-    public int getScore() {return herzi.score;}
 
-    public boolean getGame() {return herzi.game;}
+    /**
+     *
+     * @return score (int)
+     */
+    public int getScore() {return Move.score;}
 
-    public int[] getGrid() {return herzi.getGrid();}
+    /**
+     *
+     * @return game (boolean)
+     */
+    public boolean getGame() {return Move.game;}
 
-    public int move(int[] grid) {return herzi.move(grid);}
+    /**
+     *
+     * @return grid (int[])
+     */
+    public int[] getGrid() {return Move.getGrid();}
 
-    public void random_tile(int[] grid) {herzi.random_tile(grid);}
 
-    public void rotate(int[] grid, int n) {herzi.rotate(grid, n);}
+    /**
+     *
+     * @param grid ()
+     * @return grid (moved)
+     */
+    public int move(int[] grid) {return Move.move(grid);}
 
-    public void rotate(int[] grid) {herzi.rotate(grid);}
+    /**
+     *
+     * @param grid (of random tile)
+     */
+    public void random_tile(int[] grid) {Move.random_tile(grid);}
+
+    /**
+     * A Method which gets called by the view.
+     * @param grid is an Array used to call a Method from Model
+     * @param n is an int which is used to call the same Method.
+     */
+    public void rotate(int[] grid, int n) {Move.rotate(grid, n);}
+
+    /**
+     * A Method without a return value from Model.
+     * @param grid
+     */
+    public void rotate(int[] grid) {Move.rotate(grid);}
 
 }

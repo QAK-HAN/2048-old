@@ -5,6 +5,9 @@ import processing.core.PApplet;
 
 import java.util.Arrays;
 
+/**
+ * PApplet import
+ */
 public class View extends PApplet implements ViewInterface {
 
     final int X_POS = 0;
@@ -21,6 +24,10 @@ public class View extends PApplet implements ViewInterface {
     boolean game = controller.getGame();
 
 
+    /**
+     *
+     * Main method calls PApplet to run the code
+     */
     public static void main(String[] args) {
 
         PApplet.runSketch(new String[]{""}, new View());
@@ -28,6 +35,10 @@ public class View extends PApplet implements ViewInterface {
 
     }
 
+    /**
+     *
+     * @param grid (get the final grid which gets displayd)
+     */
   public void show(int[] grid) {
         int edge_length = (int) (sqrt(grid.length));
         int i = 0;
@@ -49,12 +60,19 @@ public class View extends PApplet implements ViewInterface {
     }
 
 
+    /**
+     * PApplet use
+     * sets Pannel Size
+     */
     public void settings() {
         int X_SIZE = 2 * X_POS + 2 * X_OFFSET + SIZE_BORDER + 4 * (SIZE_TILE + SIZE_BORDER);
         int Y_SIZE = 2 * Y_POS + 2 * Y_OFFSET + SIZE_BORDER + 4 * (SIZE_TILE + SIZE_BORDER);
         size(X_SIZE, Y_SIZE);
     }
 
+    /**
+     * sets up other variable of the game which only has to be called once
+     */
     public void setup() {
         textAlign(CENTER, CENTER);
         textSize(27);
@@ -68,6 +86,9 @@ public class View extends PApplet implements ViewInterface {
         println(grid);
     }
 
+    /**
+     * is a PApplet method to get variables throw inputs
+     */
     public void keyPressed() {
         int[] temp_grid = new int[grid.length];
         arrayCopy(grid, temp_grid);
@@ -104,6 +125,10 @@ public class View extends PApplet implements ViewInterface {
         }
     }
 
+    /**
+     * do not delete
+     * PApplet needs this method to run.
+     */
     public void draw() {
 
     }
